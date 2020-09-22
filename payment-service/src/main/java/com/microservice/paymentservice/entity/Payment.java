@@ -1,0 +1,27 @@
+package com.microservice.paymentservice.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "PAYMENT")
+@Data
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor	
+public class Payment {
+	
+	@Id
+	@GeneratedValue
+	private int paymentId;
+	private String paymentStatus;
+	private String transactionId;
+
+}
