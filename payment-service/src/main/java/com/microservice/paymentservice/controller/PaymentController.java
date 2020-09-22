@@ -2,6 +2,7 @@ package com.microservice.paymentservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ public class PaymentController {
 	
 	
 	@PostMapping("/doPayment")
-	public Payment doPayment(Payment payment) {
+	public Payment doPayment(@RequestBody Payment payment) {
 		return paymentService.doPayment(payment);
 	}
 	
