@@ -14,17 +14,22 @@ public class PaymentService {
 
 	@Autowired
 	PaymentRepository paymentRepository;
-	
+
 	public Payment doPayment(Payment payment) {
 		payment.setPaymentStatus(paymentProcessing());
 		payment.setTransactionId(UUID.randomUUID().toString());
 		return paymentRepository.save(payment);
 	}
-	
-	
+
+
 	public String paymentProcessing() {
 		return new Random().nextBoolean() ? "Success" : "Failure" ;
 	}
 
-	
+
+	public Payment findPaymentHistoryByOrderId(int orderId) {
+		return paymentRepository.findByOrderId(orderId);
+	}
+
+
 }
